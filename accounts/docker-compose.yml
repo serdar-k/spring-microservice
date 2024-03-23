@@ -1,0 +1,37 @@
+services:
+  accounts:
+    image: "serdarkorkmaz/accounts:s4"
+    container_name: accounts-ms
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - "serdar"
+  loan:
+    image: "serdarkorkmaz/loans:s4"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - "serdar"
+  cards:
+    image: "serdarkorkmaz/cards:s4"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - "serdar"
+networks:
+  serdar:
+    driver: "bridge"
