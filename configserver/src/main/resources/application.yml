@@ -1,15 +1,24 @@
 # NATIVE ILE VARSAYILAN PROFIL OLARAK SPRING CLOUD CONFIG SERVER SECILIR
+# ACTIVE: NATIVE, CLASSPATH YA DA FILE KULLANILIRKEN SECILIR
+# GITHUB KULLANILIRKEN ACTIVE: NATIVE YERINE ACTIVE: GIT KULLANILIR VE SERVER ALTINDAKI NATIVE KULLANILMAZ
 # CONFIG DOSYALARININ YERI BELIRTILIR(YML DOSYALARI)
 spring:
   application:
-  name: "configserver"
-profiles:
-    active: native
-    cloud:
+    name: "configserver"
+  profiles:
+  #    active: native
+   active: git
+  cloud:
     config:
       server:
-        native:
-          search-locations: "classpath:/config"
+#      native:
+#       search-locations: "classpath:/config"
+        git:
+          uri: "https://github.com/serdar-k/spring-microservice-config.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
 
 server:
   port: 8071
