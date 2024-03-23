@@ -1,0 +1,11 @@
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome the bank application cards related QA APIs"
+  contactDetails:
+    name: "Smith Ray - QA Lead"
+    email: "smith@mail.com"
+  on-call-support:
+    - (555) 555-2010
+    - (555) 555-2011

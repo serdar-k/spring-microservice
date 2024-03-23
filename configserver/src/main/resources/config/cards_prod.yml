@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+cards:
+  message: "Welcome the bank application cards related prod APIs"
+  contactDetails:
+    name: "John Doe - Product Owner"
+    email: "john@mail.com"
+  onCallSupport:
+    - (555) 555-2018
+    - (555) 555-2019
