@@ -1,0 +1,18 @@
+# BIR PROFILI PROD ISMI ILE AKTIFLESTIRIRDIKTEN SONRA ARTIK BU DOSYA KULLANILACAKTIR
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+# ACCOUNT, PREFIX OLARAK KULLANILIYOR
+accounts:
+  message: "Welcome the bank application accounts related prod APIs"
+  contactDetails:
+    name: "John Doe - Product Owner"
+    email: "john@mail.com"
+  onCallSupport:
+    - (555) 555-2018
+    - (555) 555-2019

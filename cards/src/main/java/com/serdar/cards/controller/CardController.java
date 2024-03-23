@@ -1,5 +1,7 @@
 package com.serdar.cards.controller;
 
+import com.serdar.cards.dto.CardContactInfoDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +25,15 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/api", produces = { MediaType.APPLICATION_JSON_VALUE })
+@RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @AllArgsConstructor
 @Validated
 public class CardController {
 
     private ICardService cardService;
+
+    @Autowired
+    private CardContactInfoDto cardContactInfoDto;
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createCard(
@@ -73,6 +78,11 @@ public class CardController {
                     .status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(AppConstants.STATUS_417, AppConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<CardContactInfoDto> getContactInfo() {
+        return ResponseEntity.status(HttpStatus.OK).body(cardContactInfoDto);
     }
 
 }
