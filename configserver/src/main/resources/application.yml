@@ -1,6 +1,15 @@
 spring:
   application:
     name: "configserver"
+  profiles:
+#    NATIVE ILE VARSAYILAN PROFIL OLARAK SPRING CLOUD CONFIG SERVER SECILIR
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+#          CONFIG DOSYALARININ YERI BELIRTILIR(YML DOSYALARI)
+          search-locations: "classpath:/config"
 
 server:
   port: 8071
