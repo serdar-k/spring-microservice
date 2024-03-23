@@ -1,6 +1,13 @@
+# NAME SAYESINDE BU MICROSERVICE, CONFIGSERVER ICERISINDE TANIMLI YML DOSYALARINA VE ILGILI PROFILLERE ERISIR
+# CONFIG ICERISINDE CONFIGSERVER ILE MICROSERVICE VE CONFIGSERVICE ARASINDAKI BAGLANTI SAGLANIR - BURADA KULLANILAN CONFIGSERVER ILE PROJE OLARAK KULLANILAN CONFIGSERVER ISMI HER ZAMAN AYNI OLMAYABILIR, BURADA AYARLAMA YAPARKEN CONFIGSERVER KULLANILIR
+# OPTIONAL ISE CONFIGSERVER'A BAGLANAMAMA DURUMUNDA DA ACCOUNTS MS'IN YINE DE CALISMASINI ISTEDIGIMIZI GOSTERMEK ICIN KULLANILIR
 server:
   port: 8000
 spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
@@ -15,22 +22,4 @@ spring:
       ddl-auto: update
     show-sql: true
   config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
-  profiles:
-    active:
-      - "qa"
-
-build:
-  version: "3.0"
-
-# ACCOUNT, PREFIX OLARAK KULLANILIYOR
-accounts:
-  message: "Welcome the bank application accounts related local APIs"
-  contactDetails:
-    name: "Serdar Korkmaz - Admin"
-    email: "serdar@mail.com"
-  onCallSupport:
-    - (555) 555-2008
-    - (555) 555-2009
+    import: "optional:configserver:http://localhost:8071/"
