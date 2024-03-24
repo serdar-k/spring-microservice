@@ -19,6 +19,20 @@ spring:
           timeout: 5
           clone-on-start: true
           force-pull: true
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
+
+# SPRING CLOUD CONFIG MONITOR'UN SAGLADIGI API'YI KULLANABILMEK ICIN MANAGEMENT AYARI
+# GITHUB ICERISINDE BIR DEGISIKLIK OLDUGU ZAMAN GITHUB TARAFINDAN BU API'YE BIR WEBHOOK REQUEST GONDERILIR
+# BU REQUEST SONRASINDA CONFIGSERVER SPRING CLOUD BUS'I KULLANARAK REFRESH YAPACAK
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 encrypt:
   key: "56E92FD2FG72EG0BE9E4F6CC408G0"
