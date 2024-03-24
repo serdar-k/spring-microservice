@@ -20,6 +20,11 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
 
 # * ILE SPRING BOOT ACTUATOR TARAFINDAN DESTEKLENEN TUM MANAGEMENT ENDPOINTLERI KULLANIMA ACILIR
 # BU ENDPOINTLER ICERISINDE REFRESH ILE ILGILI OLAN ENDPOINT DE BULUNUR
