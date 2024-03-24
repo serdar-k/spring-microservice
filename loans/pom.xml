@@ -92,7 +92,7 @@
                 <version>3.4.1</version>
                 <configuration>
                     <to>
-                        <image>serdarkorkmaz/${project.artifactId}:s4</image>
+                        <image>serdarkorkmaz/${project.artifactId}:s6</image>
                     </to>
                 </configuration>
             </plugin>
